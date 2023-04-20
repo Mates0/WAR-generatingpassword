@@ -18,9 +18,9 @@ const initialState: State = {
     password: '',
     options: {
         length: 10,
-        useSpecialCharacters: true,
-        useNumbers: true,
-        useUppercase: true
+        useSpecialCharacters: false,
+        useNumbers: false,
+        useUppercase: false
     },
 };
 
