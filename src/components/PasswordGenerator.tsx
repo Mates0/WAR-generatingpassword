@@ -10,13 +10,18 @@ function PasswordGenerator() {
         const {length, useSpecialCharacters, useNumbers, useUppercase} = state.options;
 
         let characters = 'abcdefghijklmnopqrstuvwxyz';
-        if (useUppercase) characters += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        if (useSpecialCharacters) characters += '!@#$%^&*()_+-={}[];:"|,./?';
-        if (useNumbers) characters += '0123456789';
-
+        if (useUppercase) {
+            characters += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        }
+        if (useNumbers) {
+            characters += '0123456789';
+        }
+        if (useSpecialCharacters) {
+            characters += '}_%$":|-[){*.=/+^&@#(!;?],';
+        }
         let password = '';
         for (let i = 0; i < length; i++) {
-            password += characters.charAt(Math.floor(Math.random() * characters.length));
+            password += characters.charAt(Math.random() * characters.length);
         }
 
         dispatch({type: 'updatePassword', payload: password});

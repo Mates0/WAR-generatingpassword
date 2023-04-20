@@ -26,7 +26,7 @@ const initialState: State = {
 
 const AppContext = createContext<{ state: State; dispatch: React.Dispatch<Action> }>({
     state: initialState,
-    dispatch: () => null,
+    dispatch: () => ("")
 });
 
 function appReducer(state: State, action: Action): State {
@@ -42,7 +42,6 @@ function appReducer(state: State, action: Action): State {
 
 function AppProvider(props: React.PropsWithChildren<{}>) {
     const [state, dispatch] = useReducer(appReducer, initialState);
-
     return (
         <AppContext.Provider value={{ state, dispatch }}>
             {props.children}
